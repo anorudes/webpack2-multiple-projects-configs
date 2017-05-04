@@ -1,0 +1,10 @@
+{
+  "name": "Example",
+  "version": "0.1",
+  "scripts": {
+    "start": "rimraf dist && NODE_ENV=development node bin/server.js",
+    "start-ssr": "rimraf dist && NODE_ENV=development concurrently --kill-others \"nodemon --debug --watch src bin/server-ssr.js\" \"node bin/webpack-server.js\"",
+    "production": "NODE_ENV=production node bin/server-ssr.js",
+    "build": "rimraf dist && NODE_ENV=production webpack --progress --display-error-details --config webpack/common.config.js",
+  }
+}
